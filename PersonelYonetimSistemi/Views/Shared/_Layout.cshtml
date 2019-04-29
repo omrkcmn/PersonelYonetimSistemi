@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="Shortcut Icon" href="https://img.icons8.com/ios/50/000000/google-logo.png" type="image/x-icon"><title>Personel Yönetim Sistemi</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/hatacss.css" rel="stylesheet" />
+    <link href="~/Scripts/DataTables/dataTables.bootstrap.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    @Html.Partial("_Header")
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>﻿
+
+
+    <script src="~/Scripts/bootbox.min.js"></script>
+    @RenderSection("scripts", false)
+</body> 
+</html>

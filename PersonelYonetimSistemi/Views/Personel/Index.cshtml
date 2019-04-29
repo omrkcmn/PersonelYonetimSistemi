@@ -1,0 +1,57 @@
+﻿@model List<PersonelYonetimSistemi.Models.Personel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a class="btn btn-success" href="/Personel/Yeni">Yeni Personel Ekle</a>
+<br /><br />
+<h2>Personel Listesi</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Personel Numara</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Departman</th>
+            <th>Maaş</th>
+            <th>Yaş</th>
+            <th>Doğum Tarihi</th>
+
+            <th>Cinsiyet</th>
+
+            <th>Medeni Hal</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personel in Model)
+        {
+            <tr>
+                <td>@personel.id</td>
+                <td>@personel.ad</td>
+                <td>@personel.soyad</td>
+                <td>@personel.Departman.ad</td>
+                <td>@personel.maas</td>
+                
+                <td>@(DateTime.Now.Year - personel.dTarihi.Value.Year)</td>
+
+                <td>@personel.dTarihi.Value.ToString("dd-MM-yyyy")</td>
+
+                <td>@(personel.cinsiyet == false ? "Erkek" : "Kadın")</td>
+
+                <td>@(personel.medeniHal == true ? "Evli" : "Bekar")</td>
+
+                <td><a class="btn btn-primary" href="/Personel/Guncelle/@personel.id">Güncelle</a></td>
+                <td><a class="btn btn-warning" href="/Personel/Sil/@personel.id">Sil</a></td>
+                
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

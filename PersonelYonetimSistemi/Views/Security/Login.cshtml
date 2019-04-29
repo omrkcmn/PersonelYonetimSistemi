@@ -1,0 +1,28 @@
+﻿@model PersonelYonetimSistemi.Models.Kullanici
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Giriş</h2>
+    <div class="container">
+        @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Ad)
+                @Html.TextBoxFor(m => m.Ad, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Sifre)
+                @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifre" })
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Giriş</button>
+        }
+    </div>
+</body>
+</html>

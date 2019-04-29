@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PersonelYonetimSistemi.Models.Personel>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Doğum Tarihi</th>
+            <th>Maaş</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personel in Model)
+        {
+            <tr>
+                <td>@personel.ad</td>
+                <td>@personel.soyad</td>
+                <td>@personel.dTarihi.Value.ToString("dd-MM-yyyy")</td>
+                <td>@personel.maas TL</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br /><br /><br /><br />

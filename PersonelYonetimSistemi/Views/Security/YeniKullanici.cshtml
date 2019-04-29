@@ -1,0 +1,17 @@
+﻿@model PersonelYonetimSistemi.Models.Kullanici
+
+
+
+<h2>Yeni Kullanıcı</h2>
+
+@using (Html.BeginForm("Kaydet","Kullanici", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m=> m.Ad)
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

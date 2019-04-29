@@ -1,0 +1,65 @@
+﻿@model PersonelYonetimSistemi.PersonelFormViewModel
+@{
+
+    ViewBag.Title = "PersonelForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="mesaj"></div>
+
+
+@using (Ajax.BeginForm("Kaydet", "Personel", new AjaxOptions { HttpMethod="POST",UpdateTargetId="mesaj"}))
+
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Personel Adı</label>
+        @Html.TextBoxFor(m => m.Personel.ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Personel.ad)
+    </div>
+
+    <div class="form-group">
+        <label>Personel Soyadı</label>
+        @Html.TextBoxFor(m => m.Personel.soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Personel.soyad)
+
+    </div>
+
+    <div class="form-group">
+        <label>Departman</label>
+        @Html.DropDownListFor(m => m.Personel.departmanID, new SelectList(Model.Departmanlarlar, "id", "ad"), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Personel.departmanID)
+
+    </div>
+
+    <div class="form-group">
+        <label>Maaş</label>
+        @Html.TextBoxFor(m => m.Personel.maas, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Personel.maas)
+
+    </div>
+
+    <div class="form-group">
+        <label>Doğum Tarihi</label>
+        @Html.TextBoxFor(m => m.Personel.dTarihi, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.Personel.dTarihi)
+
+    </div>
+
+    <div class="radio">
+        <label>
+            @Html.RadioButtonFor(m => m.Personel.cinsiyet, false)Erkek
+        </label>
+        <label>
+            @Html.RadioButtonFor(m => m.Personel.cinsiyet, true)Kadın
+
+        </label>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Personel.medeniHal) Evli ise Seçin
+        </label>
+    </div>
+    @Html.HiddenFor(m=>m.Personel.id)
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
